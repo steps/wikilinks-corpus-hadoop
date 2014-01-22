@@ -11,9 +11,10 @@ public class EntityMap extends Mapper<LongWritable, Text, Text, IntWritable> {
 
 	private static Text mention = new Text();
 	private static IntWritable one = new IntWritable(1);
-	
+
 	@Override
-	protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+	protected void map(LongWritable key, Text value, Context context)
+			throws IOException, InterruptedException {
 		String[] lines = value.toString().split("\n");
 		for (String line : lines) {
 			if (line.startsWith("MENTION")) {
@@ -22,6 +23,5 @@ public class EntityMap extends Mapper<LongWritable, Text, Text, IntWritable> {
 			}
 		}
 	}
-
 
 }
